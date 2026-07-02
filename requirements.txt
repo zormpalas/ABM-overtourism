@@ -1,0 +1,8 @@
+geopandas
+numpy
+shapely
+mesa
+fastapi
+uvicorn
+networkx
+matplotlib

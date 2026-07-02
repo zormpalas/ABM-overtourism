@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaflet Map Example</title>
+    <!-- Load Leaflet CSS and JS -->
+    <link rel="stylesheet" href="leaflet/leaflet.css" />
+    <script src="leaflet/leaflet.js"></script>
+    <!-- Load Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        h2 {
+            margin-top: 0;
+        }
+        
+        .controls {
+            margin-bottom: 15px;
+        }
+        
+        .controls button {
+            padding: 10px 20px;
+            margin-right: 10px;
+            font-size: 14px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+        
+        .controls button:hover {
+            background-color: #45a049;
+        }
+        
+        .controls button.heatmap-button {
+            background-color: #FF9800;
+        }
+        
+        .controls button.heatmap-button:hover {
+            background-color: #F57C00;
+        }
+        
+        .controls button.graph-button {
+            background-color: #9C27B0;
+        }
+        
+        .controls button.graph-button:hover {
+            background-color: #7B1FA2;
+        }
+        
+        .controls button.clear-button {
+            background-color: #f44336;
+        }
+        
+        .controls button.clear-button:hover {
+            background-color: #da190b;
+        }
+        
+        #timeDisplay {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #2196F3;
+            color: white;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 16px;
+            margin-left: 20px;
+        }
+        
+        #map {
+            height: 800px;
+            width: 100%;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .legend {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .legend-item {
+            display: inline-block;
+            margin-right: 20px;
+            margin-bottom: 5px;
+        }
+        
+        .legend-color {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+        
+        /* Chart container styles */
+        .chart-container {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .chart-container.active {
+            display: block;
+        }
+        
+        .chart-container h3 {
+            margin-top: 0;
+            text-align: center;
+        }
+        
+        .chart-wrapper {
+            position: relative;
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>City Tourism Simulation - Patra</h2>
+    
+    <div class="controls">
+        <button id="stepButton">Step Once</button>
+        <button id="autoButton">Start Auto Run</button>
+        <button id="stopButton">Stop</button>
+        <button id="skipToMorningButton">Skip to 8:00 AM</button>
+        <button id="noiseHeatmapButton" class="heatmap-button">Generate Noise Heatmap</button>
+        <button id="pollutionHeatmapButton" class="heatmap-button">Generate Pollution Heatmap</button>
+        <button id="clearHeatmapButton" class="clear-button">Clear Heatmap</button>
+        <button id="happinessGraphButton" class="graph-button">Generate Happiness Graph</button>
+        <button id="satisfactionGraphButton" class="graph-button">Generate Satisfaction Graph</button>
+        <button id="clearGraphButton" class="clear-button">Clear Graphs</button>
+        <span id="timeDisplay">Hour: 0:00</span>
+    </div>
+    
+    <!-- The div where Leaflet will put the map -->
+    <div id="map"></div>
+    
+    <div class="legend">
+        <strong>Legend:</strong>
+        <div class="legend-item">
+            <span class="legend-color" style="background-color: blue;"></span>
+            <span>Residents</span>
+        </div>
+        <div class="legend-item">
+            <span class="legend-color" style="background-color: red;"></span>
+            <span>Tourists</span>
+        </div>
+        <div class="legend-item">
+            <span style="color: blue; font-size: 20px; vertical-align: middle;">🏨</span>
+            <span>Hotels</span>
+        </div>
+        <div class="legend-item">
+            <span style="color: green; font-size: 20px; vertical-align: middle;">🏛️</span>
+            <span>Tier A POIs (Museums, Attractions)</span>
+        </div>
+        <div class="legend-item">
+            <span style="color: orange; font-size: 20px; vertical-align: middle;">☕</span>
+            <span>Tier B POIs (Cafes, Restaurants)</span>
+        </div>
+        <div class="legend-item">
+            <span style="color: darkorange; font-size: 20px; vertical-align: middle;">🛍️</span>
+            <span>Tier C POIs (Shops)</span>
+        </div>
+    </div>
+    
+    <!-- Chart containers -->
+    <div id="happinessChartContainer" class="chart-container">
+        <h3>Resident Happiness Distribution</h3>
+        <div class="chart-wrapper">
+            <canvas id="happinessChart"></canvas>
+        </div>
+    </div>
+    
+    <div id="satisfactionChartContainer" class="chart-container">
+        <h3>Tourist Satisfaction Distribution</h3>
+        <div class="chart-wrapper">
+            <canvas id="satisfactionChart"></canvas>
+        </div>
+    </div>
+    
+    <!-- My custom JavaScript -->
+    <script src="map.js"></script>
+</body>
+</html>

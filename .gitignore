@@ -1,0 +1,21 @@
+# Ignore Virtual Environment
+.venv/
+
+# Ignore LaTeX build files
+*.aux
+*.blg
+*.fdb_latexmk
+*.fls
+*.idx
+*.ilg
+*.ind
+*.lof
+*.log
+*.lot
+*.synctex.gz
+*.toc
+
+# Ignore everything in the data folder
+data/*
+# Except for the .gitkeep file
+!data/.gitkeep

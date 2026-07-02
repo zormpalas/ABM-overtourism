@@ -1,0 +1,72 @@
+\begin{abstract}
+Ο υπερτουρισμός αποτελεί ένα από τα πιο πιεστικά ζητήματα των σύγχρονων
+κοινωνιών, καθώς η υπέρβαση της φέρουσας ικανότητας ενός προορισμού
+επηρεάζει αρνητικά τόσο τους μόνιμους κατοίκους όσο και την ίδια την
+ποιότητα της τουριστικής εμπειρίας. Τα παραδοσιακά στατιστικά εργαλεία,
+όπως οι δείκτες τουριστικής έντασης και πυκνότητας, αδυνατούν συχνά να
+αποτυπώσουν τη δυναμική που προκύπτει από την αλληλεπίδραση κατοίκων και
+τουριστών μέσα στον αστικό χώρο.
+
+Η παρούσα διπλωματική εργασία αναπτύσσει ένα μοντέλο βασισμένο σε πράκτορες
+\en{(Agent-Based Model)} για την προσομοίωση του φαινομένου του υπερτουρισμού
+σε πραγματικό αστικό περιβάλλον, με περιοχή μελέτης την πόλη της Πάτρας.
+Το οδικό δίκτυο της πόλης κατασκευάζεται ως γράφος με αξιοποίηση ελεύθερα
+προσβάσιμων γεωχωρικών δεδομένων του \en{OpenStreetMap}, ενώ πάνω σε αυτό
+μοντελοποιούνται δύο τύποι πρακτόρων: οι μόνιμοι κάτοικοι, οι οποίοι
+παραμένουν στάσιμοι και λειτουργούν ως δείκτες τουριστικής πίεσης μέσω της
+μεταβλητής ευτυχίας τους, και οι τουρίστες, οι οποίοι κινούνται έξυπνα στο
+οδικό δίκτυο ακολουθώντας ιεραρχημένη λογική προτεραιοτήτων τριών επιπέδων
+(αξιοθέατα, εστιατόρια/καφέ, καταστήματα), εμπλουτισμένη με μηχανισμό
+εμπρόσθιας οπτικής σάρωσης για ευκαιριακές παρεκτροπές.
+
+Η υλοποίηση πραγματοποιείται σε περιβάλλον ανοιχτού κώδικα με τη γλώσσα
+\en{Python} και το \en{framework Mesa}, ενώ η οπτικοποίηση των αποτελεσμάτων
+γίνεται μέσω διαδραστικού \en{web} χάρτη βασισμένου στη βιβλιοθήκη
+\en{Leaflet}, ο οποίος επιτρέπει την παρακολούθηση της προσομοίωσης σε
+πραγματικό χρόνο, καθώς και τη χαρτογράφηση θερμικών χαρτών θορύβου και
+ρύπανσης και γραφημάτων κατανομής ευτυχίας και ικανοποίησης.
+
+Η αξιολόγηση του μοντέλου πραγματοποιήθηκε μέσω τριών σεναρίων προσομοίωσης
+διαφορετικής τουριστικής πίεσης. Τα αποτελέσματα αναδεικνύουν ότι η επίδραση
+του τουρισμού δεν κατανέμεται ομοιόμορφα στον χώρο, αλλά συγκεντρώνεται γύρω
+από συγκεκριμένες ζώνες υψηλής τουριστικής κυκλοφορίας, ενώ η πλειονότητα των
+κατοίκων και των τουριστών διατηρεί ικανοποιητικά επίπεδα ευημερίας ακόμα και
+σε σενάρια αυξημένης τουριστικής πίεσης. Η γεωγραφική γενικευσιμότητα του
+συστήματος του επιτρέπει να εφαρμοστεί άμεσα σε οποιαδήποτε ελληνική πόλη ή
+χωριό, προσφέροντας ένα αναπαραγώγιμο εργαλείο ανάλυσης και διαχείρισης του
+φαινομένου του υπερτουρισμού.
+\end{abstract}
+
+\begin{abstracteng}
+\en{Overtourism has become one of the most pressing issues in modern societies,
+as exceeding a destination's carrying capacity negatively affects both permanent
+residents and the quality of the tourist experience itself. Traditional
+statistical tools, such as tourist intensity and density indices, often fail
+to capture the dynamics that emerge from the interaction between residents and
+tourists within an urban environment.}
+
+\en{This diploma thesis develops an Agent-Based Model (ABM) for simulating the
+phenomenon of overtourism in a real urban environment, using the city of Patras
+as the study area. The city's road network is constructed as a graph using freely
+available geospatial data from OpenStreetMap, on top of which two types of agents
+are modeled: permanent residents, who remain stationary and act as indicators of
+tourist pressure through their happiness variable, and tourists, who move
+intelligently across the road network following a three-tier hierarchical priority
+logic (attractions, restaurants/cafes, shops), enriched with a forward vision scan
+mechanism for opportunistic detours.}
+
+\en{The implementation is carried out in an open-source environment using the
+Python programming language and the Mesa framework, while the results are
+visualized through an interactive web map based on the Leaflet library, allowing
+real-time monitoring of the simulation as well as the mapping of noise and
+pollution heatmaps and charts of happiness and satisfaction distribution.}
+
+\en{The model was evaluated through three simulation scenarios with different levels
+of tourist pressure. The results show that the impact of tourism is not uniformly
+distributed across space, but rather concentrated around specific zones of high
+tourist traffic, while the majority of residents and tourists maintain
+satisfactory wellbeing levels even under scenarios of increased tourist pressure.
+The geographic generalizability of the system allows it to be directly applied to
+any Greek city or village, offering a reproducible tool for analyzing and managing
+the phenomenon of overtourism.}
+\end{abstracteng}
